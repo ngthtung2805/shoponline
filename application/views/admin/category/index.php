@@ -53,7 +53,7 @@
                                 <img src="public/admin/images/icons/color/edit.png">
                             </a>
 
-                            <a href="<?php echo admin_url('category/delete/' . $row->CategoryID) ?>" title="Xóa" class="delete" class="tipS verify_action basic">
+                            <a href="<?php echo admin_url('category/delete/' . $row->CategoryID) ?>" title="Xóa"  class="tipS verify_action basic">
                                 <img src="public/admin/images/icons/color/delete.png">
                             </a>
                         </td>

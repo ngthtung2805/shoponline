@@ -1,0 +1,20 @@
+.details .formRow{
+    padding: 8px 14px;
+    clear: both;
+}
+.details .formRow label{
+    width:120px;
+    float:left;
+    text-align: right;
+}
+.details .formRow input{
+    float:left;
+    margin: 0 10px;
+}
+.details .formSubmit{
+    margin:0 50px; 
+}
+.details .formRow textArea{
+    float:left;
+    margin: 0 10px;
+}

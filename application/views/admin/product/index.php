@@ -1,5 +1,6 @@
 <?php $this->load->view('admin/product/head'); ?>
 <div class="wrapper" id="main_product">
+    <?php $this->load->view('admin/message'); ?>
     <div class="widget">
 
         <div class="title">
@@ -14,68 +15,45 @@
 
         <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable" id="checkAll">
             <thead class="filter"><tr><td colspan="6">
-                        <form class="list_filter form" action="index.php/admin/product.html" method="get">
+                        <form class="list_filter form" action="<?php echo admin_url('product') ?>" method="get">
                             <table cellpadding="0" cellspacing="0" width="80%"><tbody>
 
                                     <tr>
                                         <td class="label" style="width:40px;"><label for="filter_id">Mã số</label></td>
-                                        <td class="item"><input name="id" value="" id="filter_id" type="text" style="width:55px;" /></td>
+                                        <td class="item"><input name="id" value="<?php echo $this->input->get('id'); ?>" id="filter_id" type="text" style="width:55px;" /></td>
 
                                         <td class="label" style="width:40px;"><label for="filter_id">Tên</label></td>
-                                        <td class="item" style="width:155px;" ><input name="name" value="" id="filter_iname" type="text" style="width:155px;" /></td>
+                                        <td class="item" style="width:155px;" >
+                                            <input name="name" value="<?php echo $this->input->get('name') ?>" id="filter_iname" type="text" style="width:155px;" />
+                                        </td>
 
-                                        <td class="label" style="width:60px;"><label for="filter_status">Thể loại</label></td>
-                                        <td class="item">
-                                            <select name="catalog">
+                                        <td class="label" style="width:60px;"><label for="filter_status">Danh mục</label></td>
+                                        <td class="">
+                                            <select name="category">
                                                 <option value=""></option>
-                                                <!-- kiem tra danh muc co danh muc con hay khong -->
-                                                <optgroup label="Tivi">
-                                                    <option value="18" >
-                                                        Toshiba											            </option>
-                                                    <option value="17" >
-                                                        Samsung											            </option>
-                                                    <option value="16" >
-                                                        Panasonic											            </option>
-                                                    <option value="15" >
-                                                        LG											            </option>
-                                                    <option value="14" >
-                                                        JVC											            </option>
-                                                    <option value="13" >
-                                                        AKAI											            </option>
-                                                </optgroup>
-
-                                                <!-- kiem tra danh muc co danh muc con hay khong -->
-                                                <optgroup label="Điện thoại">
-                                                    <option value="12" >
-                                                        HTC											            </option>
-                                                    <option value="11" >
-                                                        BlackBerry											            </option>
-                                                    <option value="10" >
-                                                        Asus											            </option>
-                                                    <option value="9" >
-                                                        Apple											            </option>
-                                                </optgroup>
-
-                                                <!-- kiem tra danh muc co danh muc con hay khong -->
-                                                <optgroup label="Laptop">
-                                                    <option value="8" >
-                                                        HP											            </option>
-                                                    <option value="7" >
-                                                        Dell											            </option>
-                                                    <option value="6" >
-                                                        Asus											            </option>
-                                                    <option value="5" >
-                                                        Apple											            </option>
-                                                    <option value="4" >
-                                                        Acer											            </option>
-                                                </optgroup>
-
+                                                <?php
+                                                foreach ($categories as $row):
+                                                    if (count($row->subs) > 1):
+                                                        ?>
+                                                        <optgroup label="<?php echo $row->CategoryName ?>">
+                                                            <?php foreach ($row->subs as $sub): ?>
+                                                                <option value="<?php echo $sub->CategoryID ?>" <?php echo ($this->input->get('category') == $sub->CategoryID) ? 'selected' : '' ?>>
+                                                                    <?php echo $sub->CategoryName ?>
+                                                                </option>											            </option>
+                                                            <?php endforeach; ?>						          
+                                                        </optgroup>
+                                                    <?php else: ?>
+                                                        <option value="<?php echo $row->CategoryID ?>" <?php echo ($this->input->get('category') == $row->CategoryID) ? 'selected' : '' ?>><?php echo $row->CategoryName ?></option>
+                                                    <?php
+                                                    endif;
+                                                endforeach;
+                                                ?>
                                             </select>
                                         </td>
 
                                         <td style='width:150px'>
                                             <input type="submit" class="button blueB" value="Lọc" />
-                                            <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'index.php/admin/product.html';">
+                                            <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/product';">
                                         </td>
 
                                     </tr>
@@ -104,7 +82,7 @@
                         </div>
 
                         <div class='pagination'>
-                            <?php echo $this->pagination->create_links(); ?>
+                            <?php echo $pagination;?>
                         </div>
                     </td>
                 </tr>
@@ -132,24 +110,24 @@
                         </td>
 
                         <td class="textR">
-                            <?php if ($row->PercentOff > 0): ?>
-                                <b style="color: red"><?php echo format_price($row->Price) ?></b>
-                                <p style="text-decoration: line-through"><?php echo format_price($row->Price * (1 - $row->PercentOff / 100)) ?></p>
+                            <?php if ($row->Discount > 0): ?>
+                                <p style="text-decoration: line-through"><?php echo format_price($row->Price) ?></p>
+                                <b style="color: red" ><?php echo format_price($row->Price * (1 - $row->Discount / 100)) ?></b>
                             <?php else: ?>
                                 <b style="color: red"><?php echo format_price($row->Price) ?></b>
                             <?php endif; ?>
                         </td>
-                        <td class="textC"><?php //echo $row->CreateDate  ?></td>
+                        <td class="textC"><?php echo $row->CreateDate;?></td>
 
                         <td class="option textC">
                             <a  href="product/view/9.html" target='_blank' class='tipS' title="Xem chi tiết sản phẩm">
                                 <img src="public/admin/images/icons/color/view.png" />
                             </a>
-                            <a href="admin/product/edit/9.html" title="Chỉnh sửa" class="tipS">
+                            <a href="admin/product/edit/<?php echo $row->ProductID?>" title="Chỉnh sửa" class="tipS">
                                 <img src="public/admin/images/icons/color/edit.png" />
                             </a>
 
-                            <a href="admin/product/del/9.html" title="Xóa" class="tipS verify_action" >
+                            <a href="admin/product/delete/<?php echo $row->ProductID ?>" title="Xóa" class="tipS verify_action" >
                                 <img src="public/admin/images/icons/color/delete.png" />
                             </a>
                         </td>

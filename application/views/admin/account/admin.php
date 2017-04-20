@@ -19,6 +19,7 @@
                 <tr>
                     <td style="width:10px;"><img src="public/admin/images/icons/tableArrows.png" /></td>
                     <td style="width:50px;">Mã số</td>
+                    <td>Hình</td>
                     <td>Tên đăng nhập</td>
                     <td>Họ và tên</td>
                     <td>Email</td>
@@ -49,6 +50,13 @@
                         <td><input type="checkbox" name="id[]" value="<?php echo $row->AccountID ?>" /></td>
                         <td class="textC"><?php echo $row->AccountID; ?></td>
                         <td>
+                            <div class="image_thumb">
+                                <img src="<?php echo account_img_url($row->Image) ?>" height="50">
+                                <div class="clear"></div>
+                            </div>  
+                        </td>
+                        <td>
+
                             <span title="<?php echo $row->Username ?>" class="tipS">
                                 <?php echo $row->Username ?>					
                             </span>
@@ -82,20 +90,20 @@
                             <a id="delete" href="<?php echo admin_url('account/delete/' . $row->AccountID) ?>" title="Xóa" class="tipS verify_action" >
                                 <img src="public/admin/images/icons/color/delete.png" />
                             </a>
-                            
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
-                    <script>
-                                $('#delete').click(function () {
-                                    if (!confirm("Bạn có chắc chắn muốn xóa tài khoản này không?")) {
-                                        return false;
-                                    } else {
-                                        window.location = $('#delete').attr('href');
-                                        return true;
-                                    }
-                                });
-                            </script>
+            <script>
+                $('#delete').click(function () {
+                    if (!confirm("Bạn có chắc chắn muốn xóa tài khoản này không?")) {
+                        return false;
+                    } else {
+                        window.location = $('#delete').attr('href');
+                        return true;
+                    }
+                });
+            </script>
             </tbody>
         </table>
 

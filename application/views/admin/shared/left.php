@@ -1,32 +1,34 @@
-<?php $user = $this->session->userdata('login');?>
+<?php $user = $this->session->userdata('login'); ?>
 <div id="leftSide" style="padding-top:30px;">
     <!-- Account panel -->
     <div class="sideProfile">
         <a href="#" title="" class="profileFace">
-            <img width="40" src="<?php if($user->Image == NULL) echo "public/admin/images/user.png"; else echo $user->Image?>"/></a>
-        <span><strong><?php echo $user->Name?></strong></span>
-       <span><?php if($user->RoleID==1) echo 'Quản lý';
-       else echo 'Nhân viên'?></span>
+            <img width="40" src="<?php echo ($user->Image == NULL) ? "public/admin/images/user.png" : account_img_url($user->Image) ?>"/></a>
+        <span><strong><?php echo $user->Name ?></strong></span>
+        <span><?php
+            if ($user->RoleID == 1)
+                echo 'Quản lý';
+            else
+                echo 'Nhân viên'
+                ?></span>
         <div class="clear"></div>
     </div>
     <div class="sidebarSep"></div>		    
     <!-- Left navigation -->
     <ul id="menu" class="nav">
         <li class="home">
-            <a href="<?php echo admin_url('home');?>" class="active" id="current">
+            <a href="<?php echo admin_url('home'); ?>" class="active" id="current">
                 <span>Bảng điều khiển</span>
-                <strong></strong>
             </a>
         </li>
         <li class="tran">
             <a href="admin/tran.html" class=" exp" >
                 <span>Quản lý bán hàng</span>
-                <strong>2</strong>
             </a>
             <ul class="sub">
                 <li >
-                    <a href="admin/tran.html">
-                        Giao dịch		
+                    <a href="admin/order/index">
+                        Quản lý đơn hàng		
                     </a>
                 </li>
                 <li >
@@ -39,7 +41,6 @@
         <li class="product">
             <a href="" class=" exp" >
                 <span>Sản phẩm</span>
-                <strong>3</strong>
             </a>
 
             <ul class="sub">
@@ -49,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo admin_url('category')?>">
+                    <a href="<?php echo admin_url('category'); ?>">
                         Danh mục sản phẩm	
                     </a>
                 </li>
@@ -61,39 +62,55 @@
             </ul>
 
         </li>
-        <?php if($user->RoleID==1):?>
-        <li class="account">
+        <?php if ($user->RoleID == 1): ?>
+            <li class="account">
 
-            <a href="<?php echo admin_url('account')?>" class=" exp" >
-                <span>Tài khoản</span>
-                <strong>3</strong>
+                <a href="<?php echo admin_url('account') ?>" class=" exp" >
+                    <span>Tài khoản</span>
+                </a>
+
+                <ul class="sub">
+                    <li >
+                        <a href="<?php echo admin_url('account/admin') ?>">
+                            Quản trị
+                        </a>
+                    </li>
+                    <li >
+                        <a href="<?php echo admin_url('account/user') ?>">
+                            Nhân viên
+                        </a>
+                    </li>
+                    <li >
+                        <a href="<?php echo admin_url('account/permission') ?>">
+                            Quyền	
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+        <?php endif; ?>
+        <li class="statistics">
+            <a href="<?php echo admin_url('statistics');?>" class=" exp">
+                <span>Thống kê</span>
             </a>
-
-            <ul class="sub">
+             <ul class="sub">
                 <li >
-                    <a href="<?php echo admin_url('account/admin')?>">
-                        Quản trị
+                    <a href="admin/statistics">
+                       Thống kê doanh thu
                     </a>
                 </li>
-                <li >
-                    <a href="<?php echo admin_url('account/user')?>">
-                        Nhân viên
-                    </a>
-                </li>
-                <li >
-                    <a href="<?php echo admin_url('account/permission')?>">
-                        Quyền	
+                <li>
+                    <a href="<?php echo admin_url('category'); ?>">
+                      Thống kê sản phẩm tồn	
                     </a>
                 </li>
             </ul>
 
         </li>
-        <?php endif;?>
         <li class="support">
 
             <a href="admin/support.html" class=" exp" >
                 <span>Hỗ trợ và liên hệ</span>
-                <strong>2</strong>
             </a>
 
             <ul class="sub">
@@ -114,8 +131,7 @@
 
             <a href="admin/content.html" class=" exp" >
                 <span>Nội dung</span>
-                <strong>4</strong>
-            </a>
+              </a>
 
             <ul class="sub">
                 <li >

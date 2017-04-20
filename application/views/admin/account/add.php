@@ -61,7 +61,7 @@
                     <label>Ngày sinh:</label>
                     <div class="formRight">
                         <div class="oneFour">
-                            <input class="maskDate" name="birthday" id="datepicker" value="value" type="text">
+                            <input  name="birthday" class="maskDate datepicker"  value="" type="text" style="width:250px">
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -101,7 +101,7 @@
                 <div class="formRow">
                     <label class="formLeft">Ảnh đại diện</label>
                     <div class="formRight">
-                        <div class="left"><input type="file"  id="image_list" name="image_list[]" multiple></div>
+                        <div class="left"><input type="file"  id="image_list" name="image" multiple></div>
                         <div name="image_list_error" class="clear error"></div>
                     </div>
                     <div class="clear"></div>

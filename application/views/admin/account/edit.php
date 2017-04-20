@@ -61,7 +61,7 @@
                     <label>Ngày sinh:</label>
                     <div class="formRight">
                         <div class="oneFour">
-                            <input class="maskDate" name="birthday" id="datepicker" value="<?php echo date('d-m-Y', strtotime($info->Birthday))?>" type="text">
+                            <input class="maskDate" name="birthday" id="datepicker" value="<?php echo date('d/m/Y', strtotime($info->Birthday))?>" type="text">
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -70,9 +70,9 @@
                     <label>Giới tính:</label>
                     <div class="formRight">
                        
-                        <input type="radio" <?php if($info->Gender==1) echo "checked='true'" ?> name="gender" id="admin" />
+                        <input type="radio" <?php echo ($info->Gender==1) ?"checked='true'":''; ?> name="gender" id="admin" />
                         <label for="admin">Nam</label>
-                        <input type="radio" <?php if($info->Gender==0) echo "checked='true'" ?> name="gender" id="user" />
+                        <input type="radio" <?php echo ($info->Gender==0) ?"checked='true'":''; ?> name="gender" id="user" />
                         <label for="user">Nữ</label>
                     </div>
                     <div class="clear"></div>
@@ -81,9 +81,9 @@
                     <label class="formLeft">Địa chỉ</label>
                     <div class="formRight">
                         <div class="oneTwo">
-                            <input type="text"  id="" name="address" >
+                            <input type="text"  id="" name="address" value="<?php echo $info->Address?>">
                         </div>
-                        <div name="image_list_error" class="clear error"></div>
+                        <div name="address_error" class="clear error"></div>
                     </div>
                     <div class="clear"></div>
                 </div>

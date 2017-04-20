@@ -449,7 +449,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 /* ===== UI Datepicker ===== */
 
-.datepicker { width: 58px!important; }
+.datepicker { width: 100px!important; }
 .ui-datepicker { width: 17em; padding: .2em .2em 0; border: 1px solid #ddd; -webkit-box-shadow: 0 0 0 2px #f4f4f4; background: #fff; margin-top: 1px; z-index: 3; display: none; }
 .ui-datepicker > .ui-state-hover { background: none; }
 .ui-datepicker td a.ui-state-hover, .ui-datepicker td a.ui-state-active { background: #f5f5f5; }

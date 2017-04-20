@@ -1,82 +1,59 @@
 var PageContactForm = function () {
 
     return {
-        
+
         //Contact Form
         initPageContactForm: function () {
-	        // Validation
-	        $("#sky-form3").validate({
-	            // Rules for form validation
-	            rules:
-	            {
-	                name:
-	                {
-	                    required: true
-	                },
-	                email:
-	                {
-	                    required: true,
-	                    email: true
-	                },
-	                message:
-	                {
-	                    required: true,
-	                    minlength: 10
-	                },
-	                captcha:
-	                {
-	                    required: true,
-	                    remote: 'assets/plugins/sky-forms/version-2.0.1/captcha/process.php'
-	                }
-	            },
-	                                
-	            // Messages for form validation
-	            messages:
-	            {
-	                name:
-	                {
-	                    required: 'Please enter your name',
-	                },
-	                email:
-	                {
-	                    required: 'Please enter your email address',
-	                    email: 'Please enter a VALID email address'
-	                },
-	                message:
-	                {
-	                    required: 'Please enter your message'
-	                },
-	                captcha:
-	                {
-	                    required: 'Please enter characters',
-	                    remote: 'Correct captcha is required'
-	                }
-	            },
-	                                
-	            // Ajax form submition                  
-	            submitHandler: function(form)
-	            {
-	                $(form).ajaxSubmit(
-	                {
-	                    beforeSend: function()
-	                    {
-	                        $('#sky-form3 button[type="submit"]').attr('disabled', true);
-	                    },
-	                    success: function()
-	                    {
-	                        $("#sky-form3").addClass('submited');
-	                    }
-	                });
-	            },
-	            
-	            // Do not change code below
-	            errorPlacement: function(error, element)
-	            {
-	                error.insertAfter(element.parent());
-	            }
-	        });
+            // Validation
+            $("#myForm").validate({
+                // Rules for form validation
+                rules:
+                        {
+                            fullname:
+                                    {
+                                        required: true
+                                    },
+                            email:
+                                    {
+                                        required: true,
+                                        email: true
+                                    },
+                            phone: {
+                                required: true,
+                                number:true
+                            },
+                            address: {
+                                required: true
+                            }
+                        },
+
+                // Messages for form validation
+                messages:
+                        {
+                            fullname:
+                                    {
+                                        required: 'Vui lòng điền họ tên của bạn'
+                                    },
+                            email:
+                                    {
+                                        required: 'Vui lòng điền địa chỉ email của bạn',
+                                        email: 'Địa chỉ email không hợp lệ'
+                                    },
+                            phone: {
+                                required: 'Vui lòng điền số điện thoại của bạn',
+                                number: 'Số điện thoại không hợp lệ'
+                            },
+                            address: {
+                                required: 'Vui lòng điền địa chỉ của bạn'
+                            }
+                        },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+
+            });
         }
 
     };
-    
+
 }();

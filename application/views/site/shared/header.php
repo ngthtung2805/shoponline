@@ -1,358 +1,135 @@
-<!-- Header -->
-<div class="topbar-v3">
-    <div class="search-open">
+<?php $user = $this->session->userdata('user_login'); ?>
+<header id="header">
+    <div class="header-top clearfix">
         <div class="container">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="search-close"><i class="icon-close"></i></div>
-        </div>
-    </div>
+            <div class="row">
+                <div id="header_logo" class="col-sm-2">
+                    <a class="logo" href="" title="thoi trang nam"> 
+                        <img src="public/site/img/logo.png" alt="4men" width="180" />
+                    </a>
+                </div>
+                <div id="block_top_menu" class="sf-contener col-sm-10 clearfix ">
+                    <div class="cat-title"><i class="fa fa-bars"></i> Menu </div>
+                    <ul class="sf-menu clearfix menu-content">
+                        <li>
+                            <a href="" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="product" title="Sản phẩm">Thời trang nam</a>
+                        </li>
+                        <li>
+                            <a href="product/promotion" title="Giam gia">Khuyến mãi</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Tin tuc thoi trang">Nổi bật</a>
+                        </li>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <!-- Topbar Navigation -->
-                <ul class="left-topbar">
-                    <li>
-                        <a>Currency (USD)</a>
-                        <ul class="currency">
-                            <li class="active">
-                                <a href="#">USD <i class="fa fa-check"></i></a>
-                            </li>
-                            <li><a href="#">Euro</a></li>
-                            <li><a href="#">Pound</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a>Language (EN)</a>
-                        <ul class="language">
-                            <li class="active">
-                                <a href="#">English (EN)<i class="fa fa-check"></i></a>
-                            </li>
-                            <li><a href="#">Spanish (SPN)</a></li>
-                            <li><a href="#">Russian (RUS)</a></li>
-                            <li><a href="#">German (GRM)</a></li>
-                        </ul>
-                    </li>
-                </ul><!--/end left-topbar-->
-            </div>
-            <div class="col-sm-6">
-                <ul class="list-inline right-topbar pull-right">
-                    <li><a href="#">Account</a></li>
-                    <li><a href="shop-ui-add-to-cart.html">Wishlist (0)</a></li>
-                    <li><a href="shop-ui-login.html">Login</a> | <a href="shop-ui-register.html">Register</a></li>
-                    <li><i class="search fa fa-search search-button"></i></li>
-                </ul>
-            </div>
-        </div>
-    </div><!--/container-->
-</div>
-<!-- End Topbar v3 -->
+                        <li> <a href="#" title="4men">Về 4MEN</a>
+                            <ul>
 
-<!-- Navbar -->
-<div class="navbar navbar-default mega-menu" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">
-                <img id="logo-header" src="public/site/img/logo.png" alt="Logo">
-            </a>
-        </div>
+                                <li> <a href="#" title="4men chinh sach">Chính sách</a>
+                                    <ul>
+                                        <li><a href="#" title="Chinh sach giao hang">Chính sách giao hàng</a>
+                                        </li>
+                                        <li><a href="#" title="Chinh sach doi hang">Chính sách đổi hàng</a>
+                                        </li>
+                                        <li><a href="#" title="Chinh sach khach vip">Chính sách khách vip</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-        <!-- Shopping Cart -->
-        <div class="shop-badge badge-icons pull-right">
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
-            <span class="badge badge-sea rounded-x">3</span>
-            <div class="badge-open">
-                <ul class="list-unstyled mCustomScrollbar" data-mcs-theme="minimal-dark">
-                    <li>
-                        <img src="public/site/img/thumb/05.jpg" alt="">
-                        <button type="button" class="close">×</button>
-                        <div class="overflow-h">
-                            <span>Black Glasses</span>
-                            <small>1 x $400.00</small>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="public/site/img/thumb/02.jpg" alt="">
-                        <button type="button" class="close">×</button>
-                        <div class="overflow-h">
-                            <span>Black Glasses</span>
-                            <small>1 x $400.00</small>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="public/site/img/thumb/03.jpg" alt="">
-                        <button type="button" class="close">×</button>
-                        <div class="overflow-h">
-                            <span>Black Glasses</span>
-                            <small>1 x $400.00</small>
-                        </div>
-                    </li>
-                </ul>
-                <div class="subtotal">
-                    <div class="overflow-h margin-bottom-10">
-                        <span>Subtotal</span>
-                        <span class="pull-right subtotal-cost">$1200.00</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <a href="shop-ui-inner.html" class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View Cart</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href="shop-ui-add-to-cart.html" class="btn-u btn-u-sea-shop btn-block">Checkout</a>
-                        </div>
-                    </div>
+
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!-- End Shopping Cart -->
+    </div>
+    <div class="header-bottom clearfix">
+        <div class="container">
+            <div id="search_block_top" class="clearfix">
+                <form id="searchbox"  method="post">
+                    <input class="search_query form-control" type="text" id="search_query_top" name="text" placeholder="Tìm kiếm" value="" />
+                    <button type="button"  onclick="search()" name="submit" class="button-search"> <i class="fa fa-search"></i> </button>
+                </form>
+                <script type="text/javascript">
+                    function search() {
+                        var s = document.getElementById("search_query_top").value;
+                        window.location = "index.php?c=product&a=searchproduct&search=" + s;
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-responsive-collapse">
-            <!-- Nav Menu -->
-            <ul class="nav navbar-nav">
-                <!-- Pages -->
-                <li class="dropdown active">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                        Pages
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="active"><a href="index.html">Shop UI</a></li>
-                        <li><a href="shop-ui-inner.html">Product Page</a></li>
-                        <li><a href="shop-ui-filter-grid.html">Filter Grid Page</a></li>
-                        <li><a href="shop-ui-filter-list.html">Filter List Page</a></li>
-                        <li><a href="shop-ui-add-to-cart.html">Checkout</a></li>
-                        <li><a href="shop-ui-login.html">Login</a></li>
-                        <li><a href="shop-ui-register.html">Register</a></li>
-                    </ul>
-                </li>
-                <!-- End Pages -->
+                    }
+                </script>
+            </div>
 
-                <!-- Promotion -->
-                <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                        Promotion
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <a href="javascript:void(0);">Jeans</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Skinny Jeans</a></li>
-                                <li><a href="#">Bootcut Jeans</a></li>
-                                <li><a href="#">Straight Cut Jeans</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="javascript:void(0);">Shoes</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Sandals</a></li>
-                                <li><a href="#">Heels</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Promotion -->
+            <div class="shopping_cart clearfix">
+                <a href="gio-hang.html" title="Giỏ hàng của bạn" rel="nofollow">
+                    <b>Giỏ hàng</b> 
 
-                <!-- Gifts -->
-                <li class="dropdown mega-menu-fullwidth">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                        Gifts
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="mega-menu-content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-3 col-sm-12 col-xs-12 md-margin-bottom-30">
-                                            <h3 class="mega-menu-heading">Pellentes que nec diam lectus</h3>
-                                            <p>Proin pulvinar libero quis auctor pharet ra. Aenean fermentum met us orci, sedf eugiat augue pulvina r vitae. Nulla dolor nisl, molestie nec aliquam vitae, gravida sodals dolor...</p>
-                                            <button type="button" class="btn-u btn-u-dark">Read More</button>
-                                        </div>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 md-margin-bottom-30">
-                                            <a href="#"><img class="product-offers img-responsive" src="public/site/img/blog/01.jpg" alt=""></a>
-                                        </div>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 sm-margin-bottom-30">
-                                            <a href="#"><img class="product-offers img-responsive" src="public/site/img/blog/02.jpg" alt=""></a>
-                                        </div>
-                                        <div class="col-md-3 col-sm-4 col-xs-4">
-                                            <a href="#"><img class="product-offers img-responsive" src="public/site/img/blog/03.jpg" alt=""></a>
-                                        </div>
-                                    </div><!--/end row-->
-                                </div><!--/end container-->
-                            </div><!--/end mega menu content-->
-                        </li>
-                    </ul><!--/end dropdown-menu-->
-                </li>
-                <!-- End Gifts -->
+                    <span class="cartTopRightQuantity" style="font-weight: bold;">
+                        (<?php echo empty($this->cart->contents()) ? 0 : $this->cart->total_items(); ?>)
+                    </span>
 
-                <!-- Books -->
-                <li class="dropdown mega-menu-fullwidth">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                        Books
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="mega-menu-content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Clothe</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">New in</a></li>
-                                                <li><a href="#">Coats &amp; Jackets</a></li>
-                                                <li><a href="#">Jeans</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Shorts</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Skirts</a></li>
-                                                <li><a href="#">T-Shirts</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Shoes</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Boots</a></li>
-                                                <li><a href="#">FLats</a></li>
-                                                <li><a href="#">Heels</a></li>
-                                                <li><a href="#">Sandals</a></li>
-                                                <li><a href="#">Sports</a></li>
-                                            </ul>
-                                        </div>
 
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Accessories</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">All accessories</a></li>
-                                                <li><a href="#">Bags &amp; Purses</a></li>
-                                                <li><a href="#">Scarvs &amp; Hats</a></li>
-                                                <li><a href="#">Jewellery</a></li>
-                                                <li><a href="#">Fragrance &amp; Beauty</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Lingerie</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Linger</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Slippers</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Nightwear</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Nightwear</a></li>
-                                                <li><a href="#">Socks</a></li>
-                                                <li><a href="#">Tights</a></li>
-                                            </ul>
-                                        </div>
+                    <span class="ajax_cart_product_txt"> sản phẩm</span>
+                </a><div class="cart_block block exclusive" style="display:none;"> 
+                    <div class="block_content"> 
+                        <div class="cart_block_list"> 
+                            <?php if (empty($this->cart->contents())): ?>
+                                <p class="cart_block_no_products">Bạn chưa chọn sản phẩm nào</p>
+                            <?php endif; ?>
+                            <dl class="products cartTopRightContent"> 
+                                <?php foreach ($this->cart->contents() as $item): ?>
+                                    <dt>
 
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Mixed</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">New in</a></li>
-                                                <li><a href="#">Coats &amp; Jackets</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Jeans</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Skirts</a></li>
-                                                <li><a href="#">T-shirts</a></li>
-                                                <li><a href="#">Boots</a></li>
-                                                <li><a href="#">Flats</a></li>
-                                                <li><a href="#">Heels</a></li>
-                                                <li><a href="#">Sandals</a></li>
-                                                <li><a href="#">Sports</a></li>
-                                                <li><a href="#">Socks</a></li>
-                                                <li><a href="#">Tights</a></li>
-                                            </ul>
-                                        </div>
+                                        <a href="<?php echo product_detail_link($item['id'], $item['name']) ?>" class="cart-images">
+                                            <img widht="70" src="<?php echo product_img_url($item['option']['image']); ?>" height="70">
+                                        </a>		
+                                        <div class="cart-info">	
+                                            <div class="product-name">	
+                                                <span class="quantity-formated">	
+                                                    <span class="quantity"><?php echo $item['qty']; ?></span>&nbsp;x&nbsp;	
+                                                </span>			
+                                                <a class="cart_block_product_name" title="<?php echo $item['name']; ?>" 
+                                                   href="<?php echo product_link($item['id'], $item['option']['image']); ?>"><?php echo $item['name'] ?></a>	
+                                            </div>			
+                                            <span class="price"><?php echo format_price($item['price'] * $item['qty']); ?></span>		
+                                        </div>		
+                                        <span class="remove_link">
+                                            <a href="cart/delete/<?php echo $item['id']; ?>" cart="132966" onclick="javascript:removeItemCart(this)"></a>
+                                        </span>
+                                    </dt> 
+                                <?php endforeach; ?>
+                            </dl> 
+                            <div class="cart-prices cartTopRightTotal" style="display: block;">
+                                <div class="cart-prices-line last-line">
+                                    <span class="price cart_block_total ajax_block_cart_total">
+                                        <?php echo format_price($this->cart->total()); ?>
+                                    </span>
+                                    <span class="pr">Tổng cộng</span>
+                                </div>
+                            </div>
+                            <p class="cart-buttons cartTopRightButtons" style=""> 
+                                <a id="button_order_cart" class="btn btn-default button button-small" href="" title="Gửi đơn hàng" rel="nofollow"> 
+                                    <span> Gửi đơn hàng<i class="fa fa-chevron-right right"></i> 
+                                    </span> 
+                                </a> 
+                            </p> 
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+            <div class="clearfix">
+                <?php if (!isset($user)): ?>
+                    <a href="customer/login">Đăng nhập</a> /
+                    <a href="customer/register">Đăng kí</a>
+                <?php else: ?>
+                    Xin chào <strong> <?php echo $user->CustomerName; ?></strong> ! |
+                    <a href="">Tài khoản</a> |
+                    <a href="customer/logout">Đăng xuất</a>
+                <?php endif; ?>
+            </div>
 
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Clothe</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">New in</a></li>
-                                                <li><a href="#">Coats &amp; Jackets</a></li>
-                                                <li><a href="#">Jeans</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Shorts</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Skirts</a></li>
-                                                <li><a href="#">T-shirts</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Shoes</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Boots</a></li>
-                                                <li><a href="#">Flats</a></li>
-                                                <li><a href="#">Heels</a></li>
-                                                <li><a href="#">Sandals</a></li>
-                                                <li><a href="#">Sports</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Accessories</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">All accessories</a></li>
-                                                <li><a href="#">Bags &amp; Purses</a></li>
-                                                <li><a href="#">Scarvs &amp; Hats</a></li>
-                                                <li><a href="#">Jewellery</a></li>
-                                                <li><a href="#">Fragrance &amp; Beauty</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Lingerie</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Linger</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Slippers</a></li>
-                                            </ul>
-                                            <h3 class="mega-menu-heading">Nightwear</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">Nightwear</a></li>
-                                                <li><a href="#">Socks</a></li>
-                                                <li><a href="#">Tights</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="col-md-2 col-sm-6">
-                                            <h3 class="mega-menu-heading">Mixed</h3>
-                                            <ul class="list-unstyled style-list">
-                                                <li><a href="#">New in</a></li>
-                                                <li><a href="#">Coats &amp; Jackets</a> <span class="label label-danger-shop">New</span></li>
-                                                <li><a href="#">Jeans</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Skirts</a></li>
-                                                <li><a href="#">T-shirts</a></li>
-                                                <li><a href="#">Boots</a></li>
-                                                <li><a href="#">Flats</a></li>
-                                                <li><a href="#">Heels</a></li>
-                                                <li><a href="#">Sandals</a></li>
-                                                <li><a href="#">Sports</a></li>
-                                                <li><a href="#">Socks</a></li>
-                                                <li><a href="#">Tights</a> <span class="label label-danger-shop">New</span></li>
-                                            </ul>
-                                        </div>
-                                    </div><!--/end row-->
-                                </div><!--/end container-->
-                            </div><!--/end mega menu content-->
-                        </li>
-                    </ul><!--/end dropdown-menu-->
-                </li>
-                <!-- End Books -->
-
-                <!-- Clothes -->
-                <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-delay="1000">
-                        Clothes
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Jeans</a></li>
-                        <li><a href="#">T-shirts</a></li>
-                        <li><a href="#">Shorts</a></li>
-                    </ul>
-                </li>
-                <!-- End Clothes -->
-
-                <!-- Main Demo -->
-                <li><a href="../index.html">Main Demo</a></li>
-                <!-- Main Demo -->
-            </ul>
-            <!-- End Nav Menu -->
         </div>
     </div>
-</div>
-<!-- End Navbar -->
+</header>
