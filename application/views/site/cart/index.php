@@ -38,16 +38,30 @@
                                                 <div class="clear error" name="address_error"><?php echo form_error('address'); ?></div>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">Phương thức thanh toán</label>
+                                            <div class="col-lg-8">
+                                                <div class="radio">
+                                                    <label><input type="radio" name="payment" checked="checked" value="cod">Thanh toán sau khi nhận hàng</label>
+                                                </div>
+                                                <br>
+                                                <div class="radio">
+                                                    <label><input type="radio" name="payment" value="nganluong">Thanh toán qua Ngân lượng</label>
+                                                </div>
+                                                <br>
+                                                <div class="radio">
+                                                    <label><input type="radio" name="payment" value="baokim">Thanh toán qua Bảo kim</label>
+                                                </div>
 
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-lg-4 control-label">Ghi chú</label>
                                             <div class="col-lg-8">
                                                 <textarea class="form-control input-sm field" name="note" rows="3" style="height:100px;width:300px"></textarea>
                                             </div>
                                         </div>
-                                        <a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)">
-                                            <img src="https://www.nganluong.vn/css/newhome/img/button/safe-pay-2.png"border="0" />
-                                        </a>
+
                                         <div class="form-group">
                                             <label class="col-lg-4 control-label"></label>
                                             <div class="col-lg-8">
@@ -63,7 +77,9 @@
                             ?>
 
                             <div class="col-sm-6 col-md-6">
-                                <?php $this->load->view('site/message'); ?>
+                                <div id="message">
+                                    <?php $this->load->view('site/message'); ?>
+                                </div>
                                 <div class="detail_ct" style="height:auto; min-height:inherit;">
                                     <legend>Giỏ hàng của bạn</legend>
                                     <table class="table" style="background:#FFF; font-size:12px;" id="table_cart">
@@ -92,7 +108,7 @@
                                                         <!--</td>-->
                                                     <td align="right">
                                                         <input class="form-control quantity input-sm" name="number" id="<?php echo "sl-{$item['id']}" ?>" option="0" style="width:60px; text-align:center;" type="number"  value="<?php echo $item['qty']; ?>"
-                                                               onchange="updateitem(<?php echo "{$item['id']},{$item['price']}" ?>)"> 
+                                                               onchange="updateitem(<?php echo "{$item['id']},{$item['price']}" ?>)" min="1"> 
 
                                                     </td>
                                                     <td align="right" id=""> <?php echo format_price($item['price']) ?> </td>
@@ -106,21 +122,27 @@
                                             <?php endforeach; ?>
                                         <script>
                                             function updateitem(id, price) {
-                                                $.ajax({
-                                                    url: "cart/update_ajax/",
-                                                    type: "post",
-                                                    dataType: "text",
-                                                    data: {
-                                                        qty: $('#sl-' + id).val(),
-                                                        id: id,
-                                                        price: price
-                                                    },
-                                                    success: function (result) {
-                                                        $('#carttotal-' + id).html(result);
-                                                    }
+                                                var qty = $('#sl-' + id).val();
+                                                if (qty > 10) {
+                                                    $('#message').html("<div class='alert alert-info'> <p><strong>THÔNG BÁO: </strong> Để mua sỉ hơn 10 sản phẩm vui lòng liên hệ Hotline: 0868.044.644</p> </div>");
+                                                    $('#sl-'+id).val(10);
+                                                } else {
+                                                    $.ajax({
+                                                        url: "cart/update_ajax/",
+                                                        type: "post",
+                                                        dataType: "text",
+                                                        data: {
+                                                            qty: $('#sl-' + id).val(),
+                                                            id: id,
+                                                            price: price
+                                                        },
+                                                        success: function (result) {
+                                                            $('#carttotal-' + id).html(result);
+                                                        }
 
-                                                });
-                                                $('#tongtien').load('cart/load_cart_total');
+                                                    });
+                                                    $('#tongtien').load('cart/load_cart_total');
+                                                }
                                             }
                                         </script>
                                         </tbody>

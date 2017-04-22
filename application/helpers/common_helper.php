@@ -41,6 +41,9 @@ function product_link($id, $name) {
 function promotion_link(){
     return base_url('danhmuc/san-pham-khuyen-mai.html');
 }
+function featured_link(){
+    return base_url('danhmuc/san-pham-noi-bat.html');
+}
 
 function str_to_slug($str) {
     $str = trim(mb_strtolower($str));

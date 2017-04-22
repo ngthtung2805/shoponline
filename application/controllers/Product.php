@@ -14,7 +14,7 @@ class Product extends MY_Controller {
 
     function get_by_category($id = 0) {
         $offset = $this->pagination_library->get_offset();
-       $input = array(
+        $input = array(
             'limit' => array($this->per_page, $offset),
             'where' => 'CategoryID =' . $id
         );
@@ -24,13 +24,35 @@ class Product extends MY_Controller {
         $this->_default($total, $url, $category->CategoryName, $input);
     }
 
+    function get_promotion_product() {
+        $offset = $this->pagination_library->get_offset();
+        $input = array(
+            'limit' => array($this->per_page, $offset),
+            'where' => 'Discount > 0'
+        );
+        $total = $this->product_model->total($input);
+        $url = promotion_link();
+        $this->_default($total, $url, 'Sản phẩm khuyến mãi', $input);
+    }
+
+    function get_featured_product() {
+        $offset = $this->pagination_library->get_offset();
+        $input = array(
+            'limit' => array($this->per_page, $offset),
+            'order'=>array('TotalView'=> 'DESC')
+        );
+        $total = $this->product_model->total($input);
+        $url = featured_link();
+        $this->_default($total, $url, 'Sản phẩm nổi bật', $input);
+    }
+
     function index() {
         $offset = $this->pagination_library->get_offset();
         $input = array(
             'limit' => array($this->per_page, $offset),
         );
         $total = $this->product_model->total($input);
-        $url = 'product/all';
+        $url = 'product';
         $this->_default($total, $url, 'Thời trang nam', $input);
     }
 

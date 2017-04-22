@@ -8,7 +8,7 @@
                             <span itemprop="title">4MEN</span>
                         </a>
                         <span class="arrow">›</span>
-                        <?php if ($category->Parent!= NULL): ?>
+                        <?php if ($category->Parent != NULL): ?>
                             <div itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                                 <a title="<?php echo $category->Parent->CategoryName; ?>" href="" itemprop="url">
                                     <span itemprop="title"><?php echo $category->Parent->CategoryName ?></span>
@@ -80,18 +80,28 @@
                                                         <option value="32">32</option>
                                                         <option value="34">34</option>
                                                     </select>
-                                                    <input type="hidden" id="sizeChoice" value="28" /> </div> <a class="hidden-xs" target="_blank" href="http://4menshop.com/huong-dan-chon-size.html" title="Huong dan chong size" style="margin:5px; font-size:12px; color:#FF0000; font-weight:bold;"> &raquo; Hướng dẫn chọn size</a> </fieldset>
+                                                    <input type="hidden" id="sizeChoice" value="28" />
+                                                </div>
+                                                <a class="hidden-xs" target="_blank" href="http://4menshop.com/huong-dan-chon-size.html" title="Huong dan chong size" style="margin:5px; font-size:12px; color:#FF0000; font-weight:bold;"> &raquo; Hướng dẫn chọn size</a> 
+                                            </fieldset>
                                         </div>
                                         <p>
                                             <label class="m-w-68">Số lượng</label>
-                                            <input class="text" style="width:70px; text-align:center;" type="number" min="1" max="10" value="1" id="quantityBuy" /> <span class="clearfix"></span> </p>
+                                            <input class="text" style="width:70px; text-align:center;" type="number" min="1" max="10" value="1" id="quantityBuy" /> <span class="clearfix"></span> 
+                                        </p>
                                         <div class="box-cart-bottom">
                                             <p class="buttons_bottom_block">
-                                                <button type="button" id="buyNow" rel="7745" class=" btn btn-danger btn-buynow" value="Mua ngay"> 
+                                                <button type="button" id="buyNow" rel="7745" class=" btn btn-danger btn-buynow" value="Mua ngay" onclick="addToCart(<?php echo $product->ProductID;?>)"> 
                                                     <i class="fa fa-shopping-cart "></i>
                                                     <span>Mua ngay</span>
                                                 </button>
-                                                <a href="http://4menshop.com/quan-jeans-rach/quan-jean-rach-goi-den-qj1395-7745.html#" id="addToCart" rel="7745"> + Thêm vào giỏ hàng</a>
+                                                <script>
+                                                    function addToCart(id){
+                                                        var qty = document.getElementById("quantityBuy").value;
+                                                        window.location= "cart/add/"+ id+"/"+qty;
+                                                    }
+                                                    </script>
+                                        
                                             </p>
                                         </div>
                                     </div>
@@ -206,7 +216,7 @@
                 </div>
 
                 <div id="special_block_right" class="block hidden-xs">
-                    <p class="title_block"> <a href="<?php //echo product_link($id, $name); ?>" title="thoi trang hot nhat"> Thời trang hot nhất </a> </p>
+                    <p class="title_block"> <a href="<?php //echo product_link($id, $name);  ?>" title="thoi trang hot nhat"> Thời trang hot nhất </a> </p>
                     <div class="block_content products-block">
                         <ul>
                             <?php foreach ($hottestProducts as $product): ?>

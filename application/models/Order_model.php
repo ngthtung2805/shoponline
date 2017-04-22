@@ -76,6 +76,7 @@ class Order_model extends MY_Model {
                     'Date(OrderDate) <=' => $week['sunday'],
                     'Date(OrderDate) >=' => $week['monday']
                 );
+                break;
             case 'lastweek':
                 $week = $this->CI->datetime_library->get_last_week();
                 $where = array(

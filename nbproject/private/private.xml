@@ -5,12 +5,17 @@
         <group>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/message.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/statistics/head.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/config/routes.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/shared/head.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/order/index.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/libraries/Pagination_library.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/public/admin/css/custom.css</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/Customer.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/cart/index.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/helpers/common_helper.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/ProductDetail.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/libraries/Datetime_library.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/models/Product_model.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/Cart.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/public/admin/css/css.css</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/message.php</file>
@@ -19,17 +24,22 @@
             <file>file:/D:/Xampp/htdocs/shoponline/application/core/MY_Model.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Statistics.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/shared/left.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/Product.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/order/detail.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Category.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/language/english/index.html</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/models/OrderDetail_model.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Account.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/models/Order_model.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/admin/statistics/index.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/cart/form.php</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/public/site/css/css.css</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/productdetail/index.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/customer/register.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Product.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/home/index.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/public/admin/css/main.css</file>
+            <file>file:/D:/Xampp/htdocs/shoponline/system/language/english/form_validation_lang.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Home.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/views/site/shared/header.php</file>
             <file>file:/D:/Xampp/htdocs/shoponline/application/controllers/admin/Order.php</file>

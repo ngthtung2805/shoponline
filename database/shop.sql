@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-04-12 22:16:58
+Date: 2017-04-19 23:04:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,8 +31,10 @@ CREATE TABLE `account` (
   `Address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`AccountID`)
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`AccountID`),
+  KEY `RoleID` (`RoleID`),
+  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`RoleID`) REFERENCES `role` (`RoleID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -51,7 +53,9 @@ CREATE TABLE `category` (
   `CategoryName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ParentID` int(11) DEFAULT NULL,
   `Description` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`CategoryID`)
+  PRIMARY KEY (`CategoryID`),
+  KEY `ParentID` (`ParentID`),
+  CONSTRAINT `category_ibfk_1` FOREIGN KEY (`ParentID`) REFERENCES `category` (`CategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -88,10 +92,14 @@ CREATE TABLE `comment` (
   `CustomerID` int(11) NOT NULL,
   `Subject` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Content` text COLLATE utf8_unicode_ci,
-  `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Rating` float DEFAULT NULL,
   `IsDisplay` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`CommentID`)
+  PRIMARY KEY (`CommentID`),
+  KEY `ProductID` (`ProductID`),
+  KEY `CustomerID` (`CustomerID`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ProductID`),
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
@@ -107,12 +115,12 @@ CREATE TABLE `customer` (
   `Username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `CustomerName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `Birthday` datetime DEFAULT NULL,
   `Gender` tinyint(1) DEFAULT NULL,
   `Address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CreateDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CreateDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `Image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`CustomerID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -128,47 +136,91 @@ INSERT INTO `customer` VALUES ('1', 'ngthtung2805', 'e10adc3949ba59abbe56e057f20
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `OrderID` int(11) NOT NULL AUTO_INCREMENT,
-  `CustomerID` int(11) NOT NULL,
-  `AccountID` int(11) NOT NULL,
+  `CustomerID` int(11) DEFAULT NULL,
+  `CustomerName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `AccountID` int(11) DEFAULT NULL,
   `Total` float NOT NULL,
-  `OrderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `OrderDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `OrderAddress` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `Payment` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Note` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`OrderID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+  `DeliverStatus` tinyint(1) NOT NULL,
+  `PayStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `CustomerID` (`CustomerID`),
+  KEY `AccountID` (`AccountID`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`),
+  CONSTRAINT `order_ibfk_2` FOREIGN KEY (`AccountID`) REFERENCES `account` (`AccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('1', '1', '0', '1400000', '2017-04-12 21:54:31', 'Đà Lạt, Lâm Đồng', null, '0');
-INSERT INTO `order` VALUES ('2', '1', '0', '0', '2017-04-12 21:55:11', 'Đà Lạt, Lâm Đồng', null, '0');
-INSERT INTO `order` VALUES ('3', '1', '0', '1400000', '2017-04-12 22:11:04', 'Đà Lạt, Lâm Đồng', null, '0');
-INSERT INTO `order` VALUES ('4', '1', '0', '350000', '2017-04-12 22:12:23', 'Đà Lạt, Lâm Đồng', null, '0');
-INSERT INTO `order` VALUES ('5', '1', '0', '350000', '2017-04-12 22:14:18', 'Đà Lạt, Lâm Đồng', null, '0');
-INSERT INTO `order` VALUES ('6', '1', '0', '350000', '2017-04-12 22:15:28', 'Đà Lạt, Lâm Đồng', null, '0');
+INSERT INTO `order` VALUES ('1', '1', null, null, null, null, '1400000', '2017-04-19 13:35:07', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('2', '1', null, null, null, null, '0', '2017-04-19 13:35:07', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('3', '1', null, null, null, null, '1400000', '2017-04-19 13:35:08', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('4', '1', null, null, null, null, '350000', '2017-04-19 13:35:08', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('5', '1', null, null, null, null, '350000', '2017-04-19 13:35:09', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('6', '1', null, null, null, null, '350000', '2017-04-19 13:35:10', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('7', '1', null, null, null, null, '700000', '2017-04-19 13:35:10', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('8', null, 'Nguyễn Văn A', 'a', 'agc', null, '350000', '2017-04-19 13:35:12', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('9', null, 'Nguyễn Văn A', 'a@gmail.com', '01554455545', null, '350000', '2017-04-19 13:35:13', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('10', null, 'Nguyễn Văn A', 'ngthtung2805@gmail.com', '01554455545', null, '350000', '2017-04-19 13:35:14', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('11', null, 'Nguyễn Văn A', 'a@gmail.com', 'agc', null, '350000', '2017-04-19 13:35:15', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('12', null, 'Nguyễn Văn A', 'a@gmail.com', '0123456789', null, '0', '2017-04-19 13:35:16', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('13', null, 'Quần tây nam caro', 'a@gmail.com', '01665761394', null, '0', '2017-04-19 13:35:16', 'a', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('14', null, 'Áo sơ mi caro đen', 'ngthtung2805@gmail.com', '0123456789', null, '350000', '2017-04-19 13:35:18', '97A Nguyễn Trung Trực, P4, Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('15', '1', null, null, null, null, '350000', '2017-04-19 13:35:19', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('16', '1', null, null, null, null, '350000', '2017-04-19 13:35:20', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('17', '1', null, null, null, null, '350000', '2017-04-19 13:35:21', 'Đà Lạt, Lâm Đồng', 'cod', null, '0', '0');
+INSERT INTO `order` VALUES ('18', '1', null, null, null, null, '10000', '2017-04-19 13:35:22', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('19', '1', null, null, null, null, '350000', '2017-04-19 13:35:23', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('20', '1', null, null, null, null, '350000', '2017-04-19 13:35:24', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('21', '1', null, null, null, null, '350000', '2017-04-19 13:35:24', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('22', '1', null, null, null, null, '350000', '2017-04-19 13:35:26', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('23', '1', null, null, null, null, '10000', '2017-04-19 13:35:30', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
+INSERT INTO `order` VALUES ('24', '1', null, null, null, null, '10000', '2017-04-19 13:35:29', 'Đà Lạt, Lâm Đồng', 'nganluong', null, '0', '0');
 
 -- ----------------------------
 -- Table structure for orderdetail
 -- ----------------------------
 DROP TABLE IF EXISTS `orderdetail`;
 CREATE TABLE `orderdetail` (
+  `OrderDetailID` int(11) NOT NULL,
   `OrderID` int(11) NOT NULL,
   `ProductID` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `Price` float NOT NULL,
-  PRIMARY KEY (`OrderID`,`ProductID`)
+  PRIMARY KEY (`OrderID`,`ProductID`,`OrderDetailID`),
+  KEY `ProductID` (`ProductID`),
+  CONSTRAINT `orderdetail_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order` (`OrderID`),
+  CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `product` (`ProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=FIXED;
 
 -- ----------------------------
 -- Records of orderdetail
 -- ----------------------------
-INSERT INTO `orderdetail` VALUES ('1', '1', '2', '350000');
-INSERT INTO `orderdetail` VALUES ('1', '2', '4', '350000');
-INSERT INTO `orderdetail` VALUES ('1', '4', '2', '350000');
-INSERT INTO `orderdetail` VALUES ('1', '257', '1', '350000');
-INSERT INTO `orderdetail` VALUES ('5', '4', '1', '350000');
-INSERT INTO `orderdetail` VALUES ('6', '4', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '1', '1', '2', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '1', '2', '4', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '1', '3', '2', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '1', '4', '2', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '1', '257', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '5', '4', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '6', '4', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '11', '1', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '14', '3', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '15', '4', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '16', '5', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '17', '4', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '18', '1', '1', '10000');
+INSERT INTO `orderdetail` VALUES ('0', '19', '2', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '20', '2', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '21', '3', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '22', '3', '1', '350000');
+INSERT INTO `orderdetail` VALUES ('0', '23', '1', '1', '10000');
+INSERT INTO `orderdetail` VALUES ('0', '24', '1', '1', '10000');
 
 -- ----------------------------
 -- Table structure for product
@@ -188,14 +240,16 @@ CREATE TABLE `product` (
   `Weight` int(11) DEFAULT NULL,
   `Image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TotalView` int(11) NOT NULL,
-  `CreateDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ProductID`)
+  `CreateDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`ProductID`),
+  KEY `CategoryID` (`CategoryID`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `category` (`CategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=383 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES ('1', '5', 'Áo Sơ Mi Caro Đen Trắng Tay Ngắn', '', '350000', '10', '1', '', '', 'M', null, 'ao-so-mi-caro-den-trang-tay-ngan-s375-258x3991.jpg', '5', '2017-04-06 08:32:32');
+INSERT INTO `product` VALUES ('1', '5', 'Áo Sơ Mi Caro Đen Trắng Tay Ngắn', '', '10000', '10', '1', '', '', 'M', null, 'ao-so-mi-caro-den-trang-tay-ngan-s375-258x3991.jpg', '5', '2017-04-18 10:34:07');
 INSERT INTO `product` VALUES ('2', '5', 'Áo Sơ Mi Caro Đỏ Tay Dài', '', '350000', null, '1', '', '', 'XL', null, 'ao-so-mi-caro-do-tay-dai-s415-258x399.jpg', '7', '2017-04-06 08:32:32');
 INSERT INTO `product` VALUES ('3', '5', 'Áo Sơ Mi Caro Nhí Tay Ngắn', '', '350000', null, '1', '', '', 'L', null, 'ao-so-mi-caro-nhi-tay-ngan-s459-258x399.jpg', '9', '2017-04-06 08:32:32');
 INSERT INTO `product` VALUES ('4', '5', 'Áo Sơ Mi Caro Tay Ngắn', '', '350000', null, '1', '', '', 'M', null, 'ao-so-mi-caro-tay-ngan-s439-258x399.jpg', '11', '2017-04-06 08:32:32');

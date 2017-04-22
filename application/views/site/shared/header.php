@@ -18,10 +18,10 @@
                             <a href="product" title="Sản phẩm">Thời trang nam</a>
                         </li>
                         <li>
-                            <a href="product/promotion" title="Giam gia">Khuyến mãi</a>
+                            <a href="<?php echo promotion_link(); ?>" title="Giam gia">Khuyến mãi</a>
                         </li>
                         <li>
-                            <a href="#" title="Tin tuc thoi trang">Nổi bật</a>
+                            <a href="<?php echo featured_link();?>" title="Tin tuc thoi trang">Nổi bật</a>
                         </li>
 
                         <li> <a href="#" title="4men">Về 4MEN</a>

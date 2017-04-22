@@ -31,6 +31,10 @@ class Cart extends MY_Controller {
     }
 
     function add($id, $qty = 1) {
+        if ($qty > 10) {
+            $this->session->set_flashdata('message', 'Để mua sỉ hơn 10 sản phẩm vui lòng liên hệ Hotline: 0868.044.644');
+            $qty = 10;
+        }
         $this->load->model('product_model');
 
         $product = $this->product_model->single($id);
@@ -39,9 +43,7 @@ class Cart extends MY_Controller {
             'qty' => $qty,
             'price' => $product->Price,
             'name' => $product->ProductName,
-            'option' => array(
-                'image' => $product->Image
-            )
+            'option' => array('image' => $product->Image)
         );
         $this->cart->insert($cart);
         redirect(base_url('gio-hang.html'));

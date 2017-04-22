@@ -65,7 +65,8 @@
                     <td>Thành viên</td>
                     <td style="width:200px;">Số tiền</td>
                     <td style="width:200px">Hình thức</td>
-                    <td style="width:100px;">Giao dịch</td>
+                    <td style="width:100px;">Trạng thái giao hàng</td>
+                    <td style="width:100px;">Trạng thái thanh toán</td>
                     <td style="width:75px;">Ngày tạo</td>
                     <td style="width:55px;">Hành động</td>
                 </tr>
@@ -113,13 +114,24 @@
 
 
                         <td class="status textC">
-                            <?php if ($row->Status == 0): ?>
+                            <?php if ($row->DeliverStatus == 0): ?>
                                 <span class="pending">
-                                    Chờ xử lý
+                                    Chưa giao hàng
                                 </span>
                             <?php else: ?>
                                 <span class="completed">
-                                    Thành công
+                                    Đã giao hàng
+                                </span>
+                            <?php endif; ?>
+                        </td>
+                        <td class="status textC">
+                            <?php if ($row->PayStatus == 0): ?>
+                                <span class="pending">
+                                    Chưa thanh toán
+                                </span>
+                            <?php else: ?>
+                                <span class="completed">
+                                    Đã thanh toán
                                 </span>
                             <?php endif; ?>
                         </td>

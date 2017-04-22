@@ -30,7 +30,7 @@ class Account extends MY_Controller {
             'where' => 'RoleID =2'
         );
         $this->data = array(
-            'temp' => 'admin/account/user',
+            'temp' => 'admin/account/admin',
             'list' => $this->account_model->get_all($option),
             'total' => $this->account_model->total($option)
         );
