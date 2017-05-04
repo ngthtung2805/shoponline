@@ -216,6 +216,10 @@ class MY_Model extends CI_Model {
         if ((isset($input['like'])) && $input['like']) {
             $this->db->like($input['like'][0], $input['like'][1]);
         }
+        
+        if ((isset($input['like'])) && $input['like']) {
+            $this->db->like($input['like'][0], $input['like'][1]);
+        }
 
         if ((isset($input['join'])) && $input['join']) {
             foreach ($input['join'] as $row) {
@@ -237,6 +241,7 @@ class MY_Model extends CI_Model {
         if (isset($input['limit'][0]) && isset($input['limit'][1])) {
             $this->db->limit($input['limit'][0], $input['limit'][1]);
         }
+       
     }
 
     /**

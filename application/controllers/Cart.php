@@ -19,21 +19,14 @@ class Cart extends MY_Controller {
         $this->load->view('site/shared/layout', $this->data);
     }
 
-    function check_login() {
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $password = md5($password);
-        $this->load->model('customer_model');
-        if ($this->customer_model->check_login($username, $password))
-            return true;
-        $this->form_validation->set_message(__FUNCTION__, 'Tên đăng nhập hoặc mật không chính xác');
-        return false;
-    }
-
     function add($id, $qty = 1) {
         if ($qty > 10) {
             $this->session->set_flashdata('message', 'Để mua sỉ hơn 10 sản phẩm vui lòng liên hệ Hotline: 0868.044.644');
             $qty = 10;
+        }
+        if ($this->cart->total() > 10000000) {
+            $this->session->set_flashdata('message', 'Để mua sỉ (số tiền lớn hơn 10.000.000đồng) vui lòng liên hệ Hotline: 0868.044.644');
+            redirect(base_url('cart'));
         }
         $this->load->model('product_model');
 

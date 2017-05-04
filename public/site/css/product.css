@@ -1,0 +1,298 @@
+.product .product_item
+{
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    height: 320px;
+    padding: 8px 0px;
+    float:left;
+    text-align:center;
+    margin:10px 5px;
+    width:158px;
+}
+.product .product_item:hover
+{
+    border: 1px solid #FF9900;
+}
+.product .product_item h3{
+    overflow: hidden;
+    height:30px;    
+}
+.product h3 a
+{
+
+    font-size:13px;
+}
+.product h3 a:hover
+{
+    color:#bd0103;
+}
+.product div.action
+{
+    margin-top:10px;
+    padding-top:12px;
+    border-top:1px dashed #dbdbdb;
+}
+.product span.product_total
+{
+    float:left;
+    margin-left:10px;
+}
+.product a.button
+{
+    background: none repeat scroll 0 0 #BD0103 !important;
+    border: medium none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding:5px;
+}
+.product_img{
+    width:100%;
+    height:180px;
+}
+
+.product_img img{
+    width:100%;
+    height:180px;
+}
+.product a.button:hover
+{
+    text-decoration: underline;
+}
+.product_view_img
+{
+    width:100%;
+    float:left;
+    margin-right:10px;
+    text-align:center;
+    height:320px;   
+
+}
+
+
+
+.product_view_content .product_price
+{
+    font-size:16px;
+    color:red;
+}
+.product_view_content .price_old
+{
+    font-size:14px;
+    color:#777;
+}
+
+
+.product p.price
+{
+    color:#800000;
+    font-weight:bold;
+}
+.product span.price_old
+{
+    text-decoration: line-through;
+    color:#555;
+    font-weight:normal;
+    margin-left:5px;
+}
+p.option {
+    border-bottom: 1px dashed #dbdbdb;
+    padding: 4px 0;
+}
+table.tbsicons td {
+    border: medium none !important;
+    color: #ff0000;
+    text-align: center;
+    font-size:13px;
+}
+
+
+
+.usual {
+    color: #111111;
+    width: 100%;
+}
+.usual li {
+    float: left;
+    list-style: none outside none;
+}
+.usual ul a {
+    background: none repeat scroll 0 0 #dbdbdb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #333333;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 4px 0 -1px;
+    padding: 7px 12px;
+    text-decoration: none !important;
+    text-transform: none;
+}
+.usual ul a:hover {
+    background-color: #4c66a4;
+    color: #ffffff;
+}
+.usual ul a.selected {
+    background: none repeat scroll 0 0 #4c66a4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #ffffff;
+    cursor: default;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 7px 12px;
+    text-decoration: none;
+}
+.usual div {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cccccc;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    clear: left;
+    padding: 10px 10px 8px;
+}
+.usual-content {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cccccc;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    clear: left;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 10px 10px 8px;
+}
+.usual div a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.pagination {
+    display: block;
+    padding: 5px 10px;
+    float:right;
+}
+.pagination a {
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: #717171;
+    display: inline-block;
+    float: left;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.pagination strong{
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: maroon;
+    display: inline-block;
+    float: left;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.box-show-product .comments .title h3 {
+    background: none repeat scroll 0 0 #2d1912;
+    color: #ffffff;
+    float: left;
+    font-size: 15px;
+    height: 42px;
+    line-height: 42px;
+    margin: 0;
+    padding: 0 15px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+.box-show-product .comments .title h4 {
+    float: left;
+    font-size: 14px;
+    height: 32px;
+    margin: 0 0 0 20px;
+    padding-top: 10px;
+}
+.box-show-product .reviews .item {
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.box-show-product .reviews .item .title {
+    color: #666666;
+    font-size: 11px;
+    margin: 8px 0 5px;
+    padding-left: 20px;
+}
+.box-show-product .reviews .item .title .name {
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+}
+.box-show-product .reviews .bottom {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.box-show-product .reviews .item .reply-review, .product_detail .product-information .i-right .reviews .item .reply-review-r {
+    background: url("../images/review-reply.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #bf4502;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 0 2px 23px;
+}
+.box-show-product .reviews .item .like-review, .product_detail .product-information .i-right .reviews .item .like-review-r {
+    background: url("../images/review-like.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+    color: #bf4502;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 23px 2px 0;
+}
+.box-show-product .reviews .item .content {
+    border: 1px solid #bfbfbf;
+    padding: 10px;
+}
+.box-show-product .reviews .item .content .arrow {
+    background: url("../images/review-arrow.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    height: 9px;
+    margin: -19px 0 0 40px;
+    position: absolute;
+    width: 15px;
+}
+.box-show-product .reviews .item .content p {
+    font-style: italic;
+    margin: 0;
+    padding: 5px 0;
+}
+.box-show-product .reviews .item .reply-text {
+    border: 1px solid #eaeaea;
+    margin: 5px 0 10px 50px;
+    padding: 0 10px 10px;
+}
+.box-show-product .reviews .item .reply-text .item .content {
+    border-color: #d9d6d6;
+    border-style: dotted;
+}
+
+.box-show-product .comments .content
+{
+    width:515px;
+}
+.reply-review-frm
+{
+    margin-left:15px;
+}

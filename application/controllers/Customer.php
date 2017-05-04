@@ -74,20 +74,21 @@ class Customer extends MY_Controller {
             $data = array(
                 'Username' => $username,
                 'Password' => md5($password),
-                'Name' => $fullname,
+                'CustomerName' => $fullname,
                 'Email' => $email,
                 'Birthday' => $birthday,
                 'Gender' => $gender,
                 'Address' => $address,
                 'Phone' => $phone
             );
-
+ 
             if ($this->customer_model->insert($data)) {
+               
                 $this->session->set_flashdata('message', 'Thêm mới dữ liệu thành công');
             } else {
                 $this->session->set_flashdata('message', 'Không thể thêm dữ liệu');
             }
-            redirect('');
+           redirect(base_url('customer/login'));
         }
         $this->data = array(
             'temp' => 'site/customer/register',

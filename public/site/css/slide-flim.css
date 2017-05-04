@@ -1,0 +1,187 @@
+/* CSS Document */
+
+/* truyenhinh */
+.truyenhinh{
+	width:100%;
+	height:auto;
+	display:table;
+	margin-bottom:20px;
+
+}
+.kenh-th{
+	width:128px;
+	height:70px;
+	float:left;
+ 	background:#FFF;
+	margin:5px;
+	border:1px solid #dbdbdb;
+	
+}.kenh-th img{ width:120px; height:70px;}
+/*  list-flim --------------------------*/
+
+.list-flim{
+	width:100%;
+}
+.list-flim .tittle,.truyenhinh .tittle{
+	width:auto;
+	height:35px;
+	line-height:35px;
+	padding-left:46px;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px #FFF;
+
+	font-weight: normal;
+	color: #F00;
+	line-height: 40px;
+	margin-bottom:20px;
+}
+.list-flim .tittle a,.truyenhinh .tittle a
+{
+	color: #F00;
+}
+.bg-list-flim{
+	width:560px;
+	border:1px solid #FFF;
+	border-left:none;
+	border-right:none;
+	box-shadow:0px 0px 20px #999 inset;
+	background:#FFF;
+}
+.bg-list-truyenhinh
+{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	border:1px solid #FFF;
+	border-left:none;
+	border-right:none;
+	box-shadow:0px 0px 20px #CCC inset;	
+}
+.carousel-slider
+{
+	position:relative;
+}
+
+.carousel-slider ul li{
+	display:block;
+	float:left;
+	text-align:center;
+	display:table;
+	
+}
+
+.carousel-slider .partner_prev,.carousel-slider .partner_next,.carousel-slider .partner_prev_0, .carousel-slider .partner_next_0,.carousel-slider .partner_prev_3, .carousel-slider .partner_next_3,.carousel-slider .partner_prev_2, .carousel-slider .partner_next_2,.carousel-slider .partner_prev_1, .carousel-slider .partner_next_1,.carousel-slider .partner_prev_4, .carousel-slider .partner_next_4,.carousel-slider .partner_prev_5, .carousel-slider .partner_next_5,.carousel-slider .partner_prev_6, .carousel-slider .partner_next_6,.carousel-slider .partner_prev_7, .carousel-slider .partner_next_7,.carousel-slider .partner_prev_8, .carousel-slider .partner_next_8{
+	height:300px;
+	width:46px;
+	display:block;
+	overflow:hidden;
+	cursor:pointer;
+	position:absolute;
+	z-index:999;
+	opacity:0.8;
+}
+.carousel-slider .partner_prev,.carousel-slider .partner_prev_0,.carousel-slider .partner_prev_3,.carousel-slider .partner_prev_2,.carousel-slider .partner_prev_1,.carousel-slider .partner_prev_4,.carousel-slider .partner_prev_5,.carousel-slider .partner_prev_6,.carousel-slider .partner_prev_7,.carousel-slider .partner_prev_8,.carousel-slider .partner_prev_9,.carousel-slider .partner_prev_10{
+	background:url(../images/priv.png) no-repeat;
+	left:0px;
+	top:0px;
+}
+.carousel-slider .partner_next,.carousel-slider .partner_next_0,.carousel-slider .partner_next_3,.carousel-slider .partner_next_2,.carousel-slider .partner_next_1,.carousel-slider .partner_next_4,.carousel-slider .partner_next_5,.carousel-slider .partner_next_6,.carousel-slider .partner_next_7,.carousel-slider .partner_next_8{
+	background:url(../images/next.png) no-repeat;
+	right:0px;
+	top:0px;
+}
+
+.flim-01{
+	width:170px;
+	height:280px;
+	float:left;
+	text-align:center;
+	margin-top:15px;
+	position:relative;
+}
+.flim-01:hover .over_play
+{
+	opacity:1;
+}
+.img-flim img 
+{
+    border: 1px solid #DBDBDB;
+    height: 200px;
+    padding: 4px;
+    width: 140px;
+}	
+
+.name-flim{
+	width:160px;
+	margin-left:20px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:5px;
+	height:30px;
+	overflow:hidden;
+}.name-flim:hover{ color:#FF0000;}
+.view{ color:#333333; margin-top:5px;}
+
+.product .product-01
+{
+	width:175px;
+	height:270px;
+	float:left;
+	text-align:center;
+	margin-top:15px;
+	margin-left:18px;
+}
+
+.product .img-product
+{
+	width:160px; height:170px; padding:4px; border:1px solid #dbdbdb;
+	line-height:170px;
+	text-align:center;
+}
+.product .img-product img
+{
+	width:160px;
+	max-height:170px;
+	vertical-align:middle;
+}
+.name-product:hover{ color:#FF0000;}
+.name-product
+{
+	 font-weight: bold;
+    height: 30px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px;
+}
+
+
+
+.play_btn_big {
+    background: url("../images/fullplay.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 149px;
+    left: 50%;
+    margin-left: -72px;
+    margin-top: -72px;
+    opacity: 0;
+    position: absolute;
+    text-indent: -99999px;
+    top: 50%;
+    transition: opacity 500ms ease-out 0s;
+    width: 149px;
+    z-index: 401;
+}
+.over_play {
+    background: url("../images/overlay_rich.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 80px;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    opacity: 0;
+    position: absolute;
+    top: 111px;
+    width: 80px;
+}

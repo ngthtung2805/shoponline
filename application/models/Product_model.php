@@ -2,12 +2,7 @@
 class Product_model extends MY_Model{
     var $table='product';
     var $key ='ProductID';
-    function get_featured_products(){
-        $option = array(
-            'limit'=> array(10,0)
-        );
-        return $this->get_all($option);
-    }
+    
     function  get_lastest_products(){
         $option = array(
             'limit'=>array(10,0),
@@ -34,6 +29,9 @@ class Product_model extends MY_Model{
             'limit'=>array($limit, $offset)
         );
         return $this->get_all($option);
+    }
+    function search($inputString){
+        
     }
 }
 ?>

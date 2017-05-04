@@ -4,7 +4,7 @@ class Pagination_library {
 
     var $CI;
     var $pagination;
-    public $per_page = 9;
+    public $per_page = 20;
 
     function __construct() {
         $this->CI = &get_instance();

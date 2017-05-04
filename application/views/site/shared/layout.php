@@ -3,15 +3,18 @@
     <head>
         <?php $this->load->view('site/shared/head'); ?>
     </head>
-    <body id="index" class="index hide-left-column">
-        <div class="page">
-            <div class="header-container">
+    <body>
+        <div class="container">
+            <div class="header">
                 <?php $this->load->view('site/shared/header'); ?>
             </div>
-            <div class="columns-container" style="margin-top:10px;">
+            <div id="container" style="margin-top:20px;">
                 <?php $this->load->view($temp); ?>
             </div>
-            <div class="footer-container">
+            <center>
+                <img src="public/site/images/bank.png"> 
+            </center>
+            <div class="footer">
                 <?php $this->load->view('site/shared/footer'); ?>
             </div>
         </div>

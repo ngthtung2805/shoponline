@@ -4,4 +4,10 @@
 <file name="home.php" server="ftp.4menshop.tk" local="131357855296590065" remote="131357602200000000" Dst="0" />
 <file name="product.php" server="ftp.4menshop.tk" local="131357849175515878" remote="131357598000000000" Dst="0" />
 <file name="productdetail.php" server="ftp.4menshop.tk" local="131357718132181393" remote="131357598000000000" Dst="0" />
+<file name="Cart.php" server="ftp.4menshop.tk" local="131372363841066367" remote="131372118600000000" Dst="0" />
+<file name="Customer.php" server="ftp.4menshop.tk" local="131369628594142858" remote="131372118600000000" Dst="0" />
+<file name="Home.php" server="ftp.4menshop.tk" local="131357855296590065" remote="131372118600000000" Dst="0" />
+<file name="Product.php" server="ftp.4menshop.tk" local="131372363841256495" remote="131372118600000000" Dst="0" />
+<file name="ProductDetail.php" server="ftp.4menshop.tk" local="131367343350860983" remote="131372118600000000" Dst="0" />
+<file name="Productdetail.php" server="ftp.4menshop.tk" local="131367343350860983" remote="131372258400000000" Dst="0" />
 </dwsync>

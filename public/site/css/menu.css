@@ -1,0 +1,68 @@
+/*menu top*/
+#menu {
+    background: url("../images/menu.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 4px solid #BD0103;
+    height: 31px;
+    margin: 0 auto;
+}
+#menu li {
+    background: url("../images/li-line.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    line-height: 31px;
+    padding-left: 20px;
+    padding-right: 20px;
+    float:left;
+}
+#menu li:hover {
+    background: none repeat scroll 0 0 #BD0103;
+    border-radius: 3px 3px 0 0;
+}
+#menu li.active {
+    background: none repeat scroll 0 0 #BD0103;
+    border-radius: 3px 3px 0 0;
+}
+#menu li:hover a, #menu li.active a {
+    color: #FFFFFF;
+}
+#menu li a {
+    font-weight: bold;
+}
+/*End menu top*/
+
+/*menu left*/
+ul.catalog-main li {
+    float: left;
+    height: auto;
+    line-height: 25px;
+    margin-left: 20px;
+    width: 170px;
+}
+
+ul.catalog-main li{
+    color: #FFFFFF;
+    display: table;
+    height: 25px;
+    margin-left: 5px;
+    padding-left: 8px;
+    width: 98%;
+}
+ul.catalog-sub li {
+    border-bottom: 1px dotted #4462CCE6;
+    float: left;
+    line-height: 15px;
+    list-style: disc inside url("../images/icon-02.png");
+    margin-left: 0;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+ul.catalog-sub li:last-child {
+    border-bottom: medium none;
+}
+ul.catalog-sub li a:hover {
+    color: #FF6600;
+}
+ul.catalog-main  li  a{
+    padding: 5px;
+    display:block;
+} 
+
+/*End menu left*/

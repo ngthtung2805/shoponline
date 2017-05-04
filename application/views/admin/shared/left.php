@@ -2,7 +2,7 @@
 <div id="leftSide" style="padding-top:30px;">
     <!-- Account panel -->
     <div class="sideProfile">
-        <a href="#" title="" class="profileFace">
+        <a href="admin" title="" class="profileFace">
             <img width="40" src="<?php echo ($user->Image == NULL) ? "public/admin/images/user.png" : account_img_url($user->Image) ?>"/></a>
         <span><strong><?php echo $user->Name ?></strong></span>
         <span><?php
@@ -22,7 +22,7 @@
             </a>
         </li>
         <li class="tran">
-            <a href="admin/tran.html" class=" exp" >
+            <a href="" class=" exp" >
                 <span>Quản lý bán hàng</span>
             </a>
             <ul class="sub">
@@ -55,8 +55,8 @@
                     </a>
                 </li>
                 <li >
-                    <a href="admin/comment.html">
-                        Phản hồi
+                    <a href="#">
+                        Bình luận
                     </a>
                 </li>
             </ul>
@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo admin_url('category'); ?>">
+                    <a href="">
                       Thống kê sản phẩm tồn	
                     </a>
                 </li>
@@ -109,54 +109,25 @@
         </li>
         <li class="support">
 
-            <a href="admin/support.html" class=" exp" >
+            <a href="" class=" exp" >
                 <span>Hỗ trợ và liên hệ</span>
             </a>
 
             <ul class="sub">
                 <li >
-                    <a href="admin/support.html">
+                    <a href="">
                         Hỗ trợ		
                     </a>
                 </li>
                 <li >
-                    <a href="admin/contact.html">
+                    <a href="">
                         Liên hệ		
                     </a>
                 </li>
             </ul>
 
         </li>
-        <li class="content">
-
-            <a href="admin/content.html" class=" exp" >
-                <span>Nội dung</span>
-              </a>
-
-            <ul class="sub">
-                <li >
-                    <a href="admin/slide.html">
-                        Slide		
-                    </a>
-                </li>
-                <li >
-                    <a href="admin/news.html">
-                        Tin tức		
-                    </a>
-                </li>
-                <li >
-                    <a href="admin/info.html">
-                        Trang thông tin	
-                    </a>
-                </li>
-                <li >
-                    <a href="admin/video.html">
-                        Video		
-                    </a>
-                </li>
-            </ul>
-
-        </li>
+     
 
     </ul>
 

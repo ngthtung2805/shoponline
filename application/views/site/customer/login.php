@@ -1,11 +1,13 @@
 <!--=== Login ===-->
-<div class="log-reg-v3" style="margin-top: 50px">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7 md-margin-bottom-50">
+<div class="log-reg" style="margin-top: 50px">
+     <div class="row">
+            <div class="col-md-7">
                 <h2 class="welcome-title">Chào mừng đến với <strong> 4MENSHOP </strong> </h2>
                 <div id="cmsinfo_block">
-                    <div class="content shipping margin-bottom-20">
+                    <div class="content">
+                        <div class="shipping">
+                            
+                        </div>
                         <p>
                             <strong>Miến phí vận chuyển cho đơn hàng trên 1.000.000 VNĐ</strong>
                         </p>
@@ -16,7 +18,10 @@
                         </ul>
                     </div>
 
-                    <div class="content support">
+                    <div class="content ">
+                         <div class="support">
+                            
+                        </div>
                         <p><strong>Gọi ngay cho chúng tôi khi bạn có thắc mắc</strong>
                         </p>
                         <ul>
@@ -32,8 +37,8 @@
             </div>
 
             <div class="col-md-5">
-                <?php $call = $this->uri->segment(3);?>
-                <form id="sky-form1" class="log-reg-block sky-form" style="" action="customer/login/<?php echo $call; ?>" method="post">
+                <?php $call = $this->uri->segment(3); ?>
+                <form class="log-reg-block" style="" action="customer/login/<?php echo $call; ?>" method="post">
                     <h2>Đăng nhập</h2>
 
                     <div class="row">
@@ -66,16 +71,16 @@
                     <div class="row">
                         <label class="col-lg-4"></label>
                         <div class="col-lg-6">
-                            <button class="btn-u btn-u-sea-shop margin-bottom-20" type="submit">Đăng nhập</button>
+                            <button class="btn btn-danger" style="background: #BD0103" type="submit">Đăng nhập</button>
                         </div>
                     </div>
-
+                    <p class="text-center" style="margin-top: 20px;">Không có tài khoản? Hãy <a href=""><strong>Đăng kí</strong></a> ngay</p>
                 </form>
 
-                <div class="margin-bottom-20"></div>
-                <p class="text-center">Không có tài khoản? Hãy <a href=""><strong>Đăng kí</strong></a> ngay</p>
+           
+
             </div>
         </div><!--/end row-->
-    </div><!--/end container-->
+
 </div>
 <!--=== End Login ===-->

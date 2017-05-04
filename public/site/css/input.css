@@ -1,0 +1,149 @@
+/*search*/
+#search {
+    float: right;
+    height: 32px;
+    margin-left: 15px;
+    margin-top: 30px;
+    width: auto;
+}
+#search #text-search {
+    background: #FFFFFF;
+    border: 1px solid #D6D5D5;
+    float: left;
+    font-size: 11px;
+    height: 30px;
+    padding-left: 5px;
+    width: 340px;
+}
+#search #but {
+    background: #BD0103;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 85px;
+    font-weight: bold;
+}
+/*End search*/
+
+/*
+ * form
+ */
+
+.t-form {
+    color: #000000;
+    display: block;
+    font-size: 12px;
+}
+.t-form .req {
+    color: #A73939;
+    display: inline;
+    float: none;
+    margin-left: 5px;
+}
+.t-form .error {
+    color: #A73939;
+    font-size: 11px;
+}
+.t-form .error p {
+    padding-top: 2px;
+}
+.t-form .note {
+    color: #939393;
+    display: block;
+    font-size: 11px;
+    padding-top: 2px;
+}
+.t-form .input {
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    color: #595959;
+    padding: 5px;
+}
+
+.t-form .input.error {
+    border: 1px solid #F68E8E;
+    box-shadow: 0 0 3px #F68E8E;
+}
+.t-form .input.focus {
+    border: 1px solid #B6DE5E;
+    box-shadow: 0 0 3px #B6DE5E;
+}
+.t-form .input:hover, .t-form .input:focus {
+    border: 1px solid #B6DE5E;
+    box-shadow: #B6DE5E;
+    color: #333333;
+}
+.t-form input.input {
+    font-size: 12px;
+    height: 25px;
+    width: 200px;
+}
+.t-form textarea.input {
+    font-size: 12px;
+    line-height: 1.5em;
+    width:400px;
+}
+
+.t-form select {
+    background:  #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #292929;
+    padding: 4px 3px;
+}
+.t-form label {
+    cursor: pointer;
+    font-weight: normal;
+}
+.t-form p {
+    margin: 0;
+    padding: 0;
+}
+.t-form input[type="submit"], .t-form input[type="reset"] {
+    margin-right: 5px;
+}
+.t-form .form-row {
+    clear: both;
+    padding: 5px 0;
+    position: relative;
+}
+.t-form .form-label {
+    display: inline;
+    float: left;
+    padding-top: 6px;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 25%;
+}
+.t-form .form-item {
+    display: inline;
+    float: left;
+    position: relative;
+    width: 74%;
+}
+.t-form .form-submit {
+    display: inline;
+    float: right;
+    position: relative;
+    text-align: right;
+}
+.t-form .button
+{
+    background: #3B5998 !important;
+    border-radius: 5px;
+	border:none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Roboto Condensed',tahoma,sans-serif,arial;
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px !important;
+    line-height: 40px;
+    padding: 0 20px !important;
+    width: auto !important;
+}
